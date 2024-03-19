@@ -8,7 +8,6 @@
 #include <ctime>
 #endif
 
-
 class timerutil {
  public:
 #ifdef _WIN32

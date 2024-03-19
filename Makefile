@@ -1,8 +1,8 @@
 TARGET = viewer
 # C++ Source Code Files
-CXXFILES = $(TARGET).cc callbacks.cc global.cc trackball.cc util.cc
+CXXFILES = $(TARGET).cc callbacks.cc global.cc objutil.cc trackball.cc util.cc
 # C++ Headers Files
-HEADERS = callbacks.h drawobject.h global.h stb_image.h timerutil.h trackball.h util.h 
+HEADERS = callbacks.h drawobject.h global.h objutil.h stb_image.h timerutil.h trackball.h util.h
 
 DO_UNITTESTS = "False"
 
@@ -12,10 +12,10 @@ LDFLAGS += -g -O3 -Wall -pedantic -pipe -std=c++17
 
 UNAME_S = $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	CXXFLAGS += -D LINUX -nostdinc++ -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11
+	CXXFLAGS += -D LINUX -nostdinc++ -I /usr/include/c++/11 -I /usr/include/x86_64-linux-gnu/c++/11
 	LDFLAGS += -L /usr/lib/gcc/x86_64-linux-gnu/11 -lGL -lGLU -lglfw -lGLEW -ltinyobjloader
 	SED = sed
-	GTESTINCLUDE = -D LINUX -nostdinc++ -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11
+	GTESTINCLUDE = -D LINUX -nostdinc++ -I /usr/include/c++/11 -I /usr/include/x86_64-linux-gnu/c++/11
 	GTESTLIBS = -L /usr/lib/gcc/x86_64-linux-gnu/11 -lgtest -lgtest_main -lpthread
 	# Note in Ubuntu 22 clang++ has it's own std. library
 	# clang++ -nostdinc++ -nostdlib++ -isystem /usr/lib/llvm-14/include/c++/v1 -L /usr/lib/llvm-14/lib -Wl,-rpath,/usr/lib/llvm-14/lib -lc++ -std=c++17
@@ -23,12 +23,12 @@ endif
 ifeq ($(UNAME_S),Darwin)
 	ifeq (,$(wildcard "/opt/local/bin/port"))
 	# Use MacPorts clang++'s standard library
-		CXXFLAGS += -D OSX -D GL_SILENCE_DEPRECATION -nostdinc++ -I/opt/local/include/libcxx/v1 -I/opt/local/include
-		LDFLAGS += -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib -L/opt/local/lib/libcxx -L/opt/local/lib
+		CXXFLAGS += -D OSX -D GL_SILENCE_DEPRECATION -nostdinc++ -I /opt/local/include/libcxx/v1 -I /opt/local/include
+		LDFLAGS += -L /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib -L /opt/local/lib/libcxx -L /opt/local/lib
 		LLDLIBS += -lglfw -framework OpenGL -lGLEW -ltinyobjloader
 		SED = gsed
-		GTESTINCLUDE = -I/opt/local/include -I/opt/local/src/googletest
-		GTESTLIBS = -L/opt/local/lib -lgtest -lgtest_main
+		GTESTINCLUDE = -I /opt/local/include -I /opt/local/src/googletest
+		GTESTLIBS = -L /opt/local/lib -lgtest -lgtest_main
 	else
 		# Use Apple's standard library (not recommended)
 		CXXFLAGS += -D OSX

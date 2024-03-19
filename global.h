@@ -9,6 +9,7 @@
 #include <GLFW/glfw3.h>
 
 #include <vector>
+
 #include "drawobject.h"
 
 #ifndef GLOBALS_H

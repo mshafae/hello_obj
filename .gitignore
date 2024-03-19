@@ -326,3 +326,4 @@ cython_debug/
 *.out
 *.app
 # End baseignore function
+viewer

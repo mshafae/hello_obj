@@ -1,5 +1,6 @@
 
 #include "callbacks.h"
+
 #include <tiny_obj_loader.h>
 
 void reshapeFunc(GLFWwindow* window, int w, int h) {
@@ -19,25 +20,25 @@ void reshapeFunc(GLFWwindow* window, int w, int h) {
 }
 
 void keyboardFunc(GLFWwindow* window, int key, int scancode, int action,
-                         int mods) {
+                  int mods) {
   (void)window;
   (void)scancode;
   (void)mods;
   if (action == GLFW_PRESS || action == GLFW_REPEAT) {
     // Move camera
-    float mv_x = 0, mv_y = 0, mv_z = 0;
-    if (key == GLFW_KEY_K)
-      mv_x += 1;
-    else if (key == GLFW_KEY_J)
-      mv_x += -1;
-    else if (key == GLFW_KEY_L)
-      mv_y += 1;
-    else if (key == GLFW_KEY_H)
-      mv_y += -1;
-    else if (key == GLFW_KEY_P)
-      mv_z += 1;
-    else if (key == GLFW_KEY_N)
-      mv_z += -1;
+    // float mv_x = 0, mv_y = 0, mv_z = 0;
+    // if (key == GLFW_KEY_K)
+    //   mv_x += 1;
+    // else if (key == GLFW_KEY_J)
+    //   mv_x += -1;
+    // else if (key == GLFW_KEY_L)
+    //   mv_y += 1;
+    // else if (key == GLFW_KEY_H)
+    //   mv_y += -1;
+    // else if (key == GLFW_KEY_P)
+    //   mv_z += 1;
+    // else if (key == GLFW_KEY_N)
+    //   mv_z += -1;
     // camera.move(mv_x * 0.05, mv_y * 0.05, mv_z * 0.05);
     // Close window
     if (key == GLFW_KEY_Q || key == GLFW_KEY_ESCAPE) {
@@ -113,8 +114,8 @@ void motionFunc(GLFWwindow* window, double mouse_x, double mouse_y) {
 }
 
 void Draw(const std::vector<DrawObject>& drawObjects,
-                 std::vector<tinyobj::material_t>& materials,
-                 std::map<std::string, GLuint>& textures) {
+          std::vector<tinyobj::material_t>& materials,
+          std::map<std::string, GLuint>& textures) {
   glPolygonMode(GL_FRONT, GL_FILL);
   if (g_cull_face) {
     glPolygonMode(GL_BACK, GL_LINE);
