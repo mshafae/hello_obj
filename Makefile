@@ -12,7 +12,7 @@ LDFLAGS += -g -O3 -Wall -pedantic -pipe -std=c++17
 
 UNAME_S = $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	CXXFLAGS += -D LINUX -nostdinc++ -I /usr/include/c++/11 -I /usr/include/x86_64-linux-gnu/c++/11
+	CXXFLAGS += -D LINUX -nostdinc++ -I /usr/include/c++/11 -I /usr/include/x86_64-linux-gnu/c++/11 -I /usr/include/stb
 	LDFLAGS += -L /usr/lib/gcc/x86_64-linux-gnu/11 -lGL -lGLU -lglfw -lGLEW -ltinyobjloader
 	SED = sed
 	GTESTINCLUDE = -D LINUX -nostdinc++ -I /usr/include/c++/11 -I /usr/include/x86_64-linux-gnu/c++/11
@@ -23,7 +23,7 @@ endif
 ifeq ($(UNAME_S),Darwin)
 	ifeq (,$(wildcard "/opt/local/bin/port"))
 	# Use MacPorts clang++'s standard library
-		CXXFLAGS += -D OSX -D GL_SILENCE_DEPRECATION -nostdinc++ -I /opt/local/include/libcxx/v1 -I /opt/local/include
+		CXXFLAGS += -D OSX -D GL_SILENCE_DEPRECATION -nostdinc++ -I /opt/local/include/libcxx/v1 -I /opt/local/include -I /opt/local/include/stb
 		LDFLAGS += -L /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib -L /opt/local/lib/libcxx -L /opt/local/lib
 		LLDLIBS += -lglfw -framework OpenGL -lGLEW -ltinyobjloader
 		SED = gsed

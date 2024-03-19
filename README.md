@@ -8,7 +8,7 @@ It includes a simple Makefile that can be used to build the viewer on MacOS (wit
 On Ubuntu 22, the following command will install the needed packages.
 
 ```sh
-sudo apt install -y --no-install-recommends build-essential clang clang-format clang-tidy libglm-dev libglew-dev libglfw3-dev libtinyobjloader-dev
+sudo apt install -y --no-install-recommends build-essential clang clang-format clang-tidy libglm-dev libglew-dev libglfw3-dev libtinyobjloader-dev libstb-dev
 ```
 
 Models can be downloaded from Morgan McGuire's [Computer Graphics Archive](https://casual-effects.com/data). Some suggested models are:

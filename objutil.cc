@@ -22,7 +22,7 @@
 #include "timerutil.h"
 #include "util.h"
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include <stb_image.h>
 
 void CalcNormal(float N[3], float v0[3], float v1[3], float v2[3]) {
   float v10[3];

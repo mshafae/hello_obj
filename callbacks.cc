@@ -1,7 +1,7 @@
 
-#include "callbacks.h"
-
 #include <tiny_obj_loader.h>
+
+#include "callbacks.h"
 
 void reshapeFunc(GLFWwindow* window, int w, int h) {
   int fb_w, fb_h;
