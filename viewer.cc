@@ -3,15 +3,7 @@
 //
 #include <GL/glew.h>
 
-// #include <algorithm>
-// #include <cstdio>
-// #include <cstdlib>
 #include <iostream>
-// #include <limits>
-// #include <map>
-// #include <string>
-// #include <unordered_map>
-// #include <vector>
 
 #ifdef __APPLE__
 #include <OpenGL/glu.h>
